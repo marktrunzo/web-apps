@@ -1,0 +1,21 @@
+<%
+  contacts = Contact.all
+%>
+
+
+<h1> My People </h1>
+
+
+
+<ul>
+  <% for contact in contacts %>
+  <% company = Company.find_by( "id" => contact["company_id"])%>
+  <li> 
+  <%= contact["first_name"] %> 
+  <%= contact["last_name"] %>, 
+  <%= contact["email"]%>,
+  <%= contact["phone_number"]%>,
+  <%= company["name"]%>
+  </li>
+  <% end %>
+</ul>
